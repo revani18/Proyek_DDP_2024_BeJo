@@ -3,10 +3,11 @@ import streamlit as st
 def show():
 
     # Judul Halaman
-    st.title("Aplikasi Hitung Minum Harian")
-    st.write("Masukkan data Anda untuk menghitung kebutuhan air minum harian Anda.")
+    st.title("Aplikasi Hitung Air Minum Harian")
+    st.write("Aplikasi ini dapat membantu Anda menghitung kebutuhan air minum harian Anda.")
 
     # Form Input
+    st.header("Masukkan Data Anda")
     weight = st.number_input("Berat Badan (kg)", min_value=1.0, max_value=300.0, step=0.1)
     age = st.number_input("Usia (tahun)", min_value=1, max_value=120, step=1)
     activity_level = st.selectbox("Tingkat Aktivitas", ["Rendah", "Sedang", "Tinggi"])

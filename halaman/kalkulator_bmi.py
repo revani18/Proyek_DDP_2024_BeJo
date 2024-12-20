@@ -57,26 +57,26 @@ class BMI:
                 self.kategori_bmi()
 
                 # Tampilkan hasil perhitungan
-                st.write(f"**BMI anda adalah :** {self.bmi:.2f}")
-                st.write(f"**Kategori BMI :** {self.kategori}")
+                st.markdown(f"<h2 style='text-align: center; color: #0078D7;'>BMI Anda adalah : {self.bmi:.2f}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h2 style='text-align: center; color: #0078D7;'>Kategori BMI : {self.kategori}</h2>", unsafe_allow_html=True)
 
                 # Tampilkan tips berdasarkan kategori
-                st.write(f"**Tips untuk Anda :** {self.tips}")
+                st.markdown(f"<h4 style='text-align: left; '>Tips untuk Anda : {self.tips}</h4>", unsafe_allow_html=True)
 
                 # Menambahkan tips berdasarkan usia
                 if self.usia < 18:
-                    st.write("**Tips Usia Muda :** Fokus pada pertumbuhan fisik yang sehat dan hindari diet ketat")
+                    st.markdown(f"<h4 style='text-align: left; '>Tips Usia Muda : Fokus pada pertumbuhan fisik yang sehat dan hindari diet ketat</h4>", unsafe_allow_html=True)
                 elif self.usia >= 18 and self.usia < 40:
-                    st.write("**Tips Usia Dewasa Muda:** Jaga berat badan ideal melalui diet seimbang dan olahraga rutin")
+                    st.markdown(f"<h4 style='text-align: left; '>Tips Usia Dewasa Muda: Jaga berat badan ideal melalui diet seimbang dan olahraga rutin</h4>", unsafe_allow_html=True)
                 elif self.usia >= 40 and self.usia < 60:
-                    st.write("**Tips Usia Menengah:** Mulai perhatian pada kesehatan jantung dan keseimbangan berat badan")
+                    st.markdown(f"<h4 style='text-align: left; '>Tips Usia Menengah : Mulai perhatian pada kesehatan jantung dan keseimbangan berat badan</h4>", unsafe_allow_html=True)
                 else:
-                    st.write("**Tips Usia Lanjut:** Fokus pada keseimbangan nutrisi, memperhatikan kesehatan tulang dan menjaga massa otot")
+                    st.markdown(f"<h4 style='text-align: left; '>ips Usia Lanjut : Fokus pada keseimbangan nutrisi, memperhatikan kesehatan tulang dan menjaga massa otot</h4>", unsafe_allow_html=True)
                 
                 # Menambahkan catatan untuk perbedaan jenis kelamin
                 if self.jenis_kelamin == "Laki-Laki":
-                    st.write("**Catatan :** BMI normal untuk laki-laki adalah 18–25. Laki-laki pada umumnya memiliki massa otot lebih banyak yang bisa mempengaruhi BMI")
+                    st.markdown(f"<h4 style='text-align: left; '>Catatan : BMI normal untuk laki-laki adalah 18–25. Laki-laki pada umumnya memiliki massa otot lebih banyak yang bisa mempengaruhi BMI</h4>", unsafe_allow_html=True)
                 else:
-                    st.write("**Catatan:** BMI normal untuk perempuan adalah 17–23. Perempuan cenderung memiliki lebih banyak jaringan lemak dibandingkan otot")
+                    st.markdown(f"<h4 style='text-align: left; '>Catatan : BMI normal untuk perempuan adalah 17–23. Perempuan cenderung memiliki lebih banyak jaringan lemak dibandingkan otot</h4>", unsafe_allow_html=True)
             else:
-                st.error("Harap masukkan nilai yang valid untuk berat badan, tinggi badan, dan usia.")
+                st.error("Harap masukkan nilai yang valid untuk berat badan, tinggi badan, usia, dan jenis kelamin anda.")

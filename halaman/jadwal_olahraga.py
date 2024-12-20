@@ -29,7 +29,7 @@ def hitung_total_durasi(jadwal):
 
 # Fungsi utama untuk menjalankan aplikasi
 def show():
-    st.title("Jadwal Olahraga Mingguan")
+    st.title("Aplikasi Perencanaan Jadwal Mingguan")
     st.write("Aplikasi untuk merencanakan jadwal olahraga mingguan Anda.")
 
     olahraga_options = ["Jogging", "Bersepeda", "Yoga", "Angkat Beban", "Renang", "Zumba", "Pilates"]
@@ -50,6 +50,7 @@ def show():
 
         # Tombol untuk menampilkan jadwal di tab yang sama
         if st.button("Tampilkan Jadwal Olahraga"):
+        
             # Menampilkan jadwal
             st.write("### Jadwal Olahraga Anda")
             st.table(jadwal.tampilkan_jadwal())
@@ -73,7 +74,7 @@ def show():
             while idx < len(motivasi):
                 st.write(motivasi[idx])
                 idx += 1
-
+        
     else:
         st.warning("Masukkan nama Anda terlebih dahulu.")
 
