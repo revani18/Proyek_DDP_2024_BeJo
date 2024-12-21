@@ -3,11 +3,10 @@ import matplotlib.pyplot as plt
 
 def show():
     # Judul Halaman
-    st.title("Aplikasi Hitung Kalori Harian")
-    st.write("Aplikasi ini dapat membantu Anda menghitung kebutuhan kalori harian berdasarkan data usia, jenis kelamin, tinggi badan, berat badan, dan tingkat aktivitas fisik")
-
-    # Input data usia, berat badan, tinggi badan, dan jenis kelamin
-    st.header("Masukkan Data Anda")
+    st.markdown(f"<h1 style='text-align: center; color: #0077B6;'>Aplikasi Hitung Kalori Harian</h1>", unsafe_allow_html=True)
+    st.markdown("---")
+    st.subheader("Kalkulator Kebutuhan Kalori")
+    st.text("Kalkulator Kebutuhan Kalori adalah cara menghitung kebutuhan kalori harian berdasarkan data usia, jenis kelamin, tinggi badan, berat badan, dan tingkat aktivitas fisik")
 
     # Menyimpan input di session state agar tetap ada meskipun halaman direfresh
     if 'usia' not in st.session_state:
@@ -23,31 +22,36 @@ def show():
     if 'tujuan' not in st.session_state:
         st.session_state.tujuan = "Menjaga berat badan"
 
-    # Menggunakan nilai yang disimpan di session_state
-    usia = st.number_input("Usia (tahun)", min_value=1, max_value=100, value=st.session_state.usia)
-    berat_badan = st.number_input("Berat Badan (kg)", min_value=1, value=st.session_state.berat_badan)
-    tinggi_badan = st.number_input("Tinggi Badan (cm)", min_value=50, value=st.session_state.tinggi_badan)
-    jenis_kelamin = st.selectbox("Jenis Kelamin", ("Pria", "Wanita"), index=("Pria", "Wanita").index(st.session_state.jenis_kelamin))
+    # Membuat form untuk input
+    with st.form(key='kalkulator_form'):
+        # Menggunakan nilai yang disimpan di session_state
+        usia = st.number_input("Usia (tahun)", min_value=1, max_value=100, value=st.session_state.usia)
+        berat_badan = st.number_input("Berat Badan (kg)", min_value=1, value=st.session_state.berat_badan)
+        tinggi_badan = st.number_input("Tinggi Badan (cm)", min_value=50, value=st.session_state.tinggi_badan)
+        jenis_kelamin = st.selectbox("Jenis Kelamin", ("Pria", "Wanita"), index=("Pria", "Wanita").index(st.session_state.jenis_kelamin))
 
-    # Pilih tingkat aktivitas fisik
-    tingkat_aktivitas = st.selectbox(
-        "Tingkat Aktivitas Fisik",
-        ("Tidak aktif", "Sedikit aktif", "Aktif", "Sangat aktif"),
-        index=("Tidak aktif", "Sedikit aktif", "Aktif", "Sangat aktif").index(st.session_state.tingkat_aktivitas)
-    )
+        # Pilih tingkat aktivitas fisik
+        tingkat_aktivitas = st.selectbox(
+            "Tingkat Aktivitas Fisik",
+            ("Tidak aktif", "Sedikit aktif", "Aktif", "Sangat aktif"),
+            index=("Tidak aktif", "Sedikit aktif", "Aktif", "Sangat aktif").index(st.session_state.tingkat_aktivitas)
+        )
 
-    # Menambahkan interaksi untuk menyesuaikan kalori
-    tujuan = st.selectbox(
-        "Apa tujuan Anda?",
-        ("Menjaga berat badan", "Menurunkan berat badan", "Menaikkan berat badan"),
-        index=("Menjaga berat badan", "Menurunkan berat badan", "Menaikkan berat badan").index(st.session_state.tujuan)
-    )
+        # Menambahkan interaksi untuk menyesuaikan kalori
+        tujuan = st.selectbox(
+            "Apa tujuan Anda?",
+            ("Menjaga berat badan", "Menurunkan berat badan", "Menaikkan berat badan"),
+            index=("Menjaga berat badan", "Menurunkan berat badan", "Menaikkan berat badan").index(st.session_state.tujuan)
+        )
+
+        # Tombol submit
+        submit_button = st.form_submit_button("Hitung")
 
     # Simpan nilai tujuan di session state agar tidak hilang
     st.session_state.tujuan = tujuan
 
     # Tombol Hitung
-    if st.button("Hitung"):
+    if submit_button:
         # Simpan nilai input ke session state agar tidak hilang
         st.session_state.usia = usia
         st.session_state.berat_badan = berat_badan

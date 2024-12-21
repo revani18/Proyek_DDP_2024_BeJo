@@ -29,8 +29,8 @@ def hitung_total_durasi(jadwal):
 
 # Fungsi utama untuk menjalankan aplikasi
 def show():
-    st.title("Aplikasi Perencanaan Jadwal Mingguan")
-    st.write("Aplikasi untuk merencanakan jadwal olahraga mingguan Anda.")
+    st.markdown(f"<h1 style='text-align: center; color: #0077B6;'>Aplikasi Perencanaan Jadwal Olahraga Mingguan</h1>", unsafe_allow_html=True)
+    st.markdown("---")
 
     olahraga_options = ["Jogging", "Bersepeda", "Yoga", "Angkat Beban", "Renang", "Zumba", "Pilates"]
     nama = st.text_input("Masukkan Nama Anda:")

@@ -16,7 +16,7 @@ with st.sidebar:
             "icon": {"color": "#0077B6", "font-size": "22px"},
             "nav-link": {"font-size": "18px", "text-align": "left", "padding": "12px 16px","border-radius": "8px","background-color": "#ffffff","color": "#0077B6", "--hover-color": "#b3e0ff"},
             "nav-link-selected": {"background-color": "#0077B6", "color": "white"},
-            "menu-title": {"font-size": "24px","font-weight": "bold","color": "#0077B6", "padding-top": "10px"}
+            "menu-title": {"font-size": "24px","font-weight": "bold","color": "#0077B6", "padding-top": "10px"},
 })
     selected
 

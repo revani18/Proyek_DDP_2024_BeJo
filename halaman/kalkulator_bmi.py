@@ -11,11 +11,18 @@ class BMI:
         self.tips = ""
     
     def get_input(self):
-        # input jenis kelamin, berat badan, dan tinggi badan
-        self.jenis_kelamin = st.radio("Pilih Jenis Kelamin : ", ["Laki-laki", "Perempuan"])
-        self.berat = st.number_input("Masukkan Berat Badan (kg) : ", min_value=0.0, format="%.2f", step=0.1)
-        self.tinggi = st.number_input("Masukkan Tinggi Badan (cm) : ", min_value=0.0, format="%.2f", step=0.1)
-        self.usia = st.number_input("Masukkan Usia Anda (tahun) : ", min_value=1, step=1)
+        # Membuat form untuk input
+        with st.form(key='bmi_form'):
+            # input jenis kelamin, berat badan, dan tinggi badan
+            self.jenis_kelamin = st.radio("Pilih Jenis Kelamin : ", ["Laki-laki", "Perempuan"])
+            self.berat = st.number_input("Masukkan Berat Badan (kg) : ", min_value=0.0, format="%.2f", step=0.1)
+            self.tinggi = st.number_input("Masukkan Tinggi Badan (cm) : ", min_value=0.0, format="%.2f", step=0.1)
+            self.usia = st.number_input("Masukkan Usia Anda (tahun) : ", min_value=1, step=1)
+            
+            # Tombol submit form
+            submit_button = st.form_submit_button("Hitung BMI")
+        
+        return submit_button
     
     def hitung_bmi(self):
         # Rumus menghitung BMI : Berat(kg) / Tinggi(m) * Tinggi(m)
@@ -23,7 +30,7 @@ class BMI:
         self.bmi = self.berat / (tinggi_m ** 2)
     
     def kategori_bmi(self):
-        # Kategori BMI bedasarkan Nilai BMI
+        # Kategori BMI berdasarkan Nilai BMI
         if self.bmi < 18.5:
             self.kategori = "Kurus"
             self.tips = "Disarankan untuk meningkatkan konsumsi kalori, melakukan latihan kekuatan dan istirahat yang cukup"
@@ -42,14 +49,17 @@ class BMI:
         
     # Menampilkan
     def show(self):
-        st.title("Aplikasi Kalkulator BMI (Body Mass Index)")
-        st.write("Kalkulator BMI (Body Mass Index) adalah cara menghitung berat badan ideal berdasarkan tinggi dan berat badan. BMI juga dapat dibedakan berdasarkan usia.")
-    
-        # Mengambil input dari pengguna
-        self.get_input()
+        # st.title("Aplikasi Kalkulator BMI (Body Mass Index)")
+        st.markdown(f"<h1 style='text-align: center; color: #0077B6;'>Aplikasi Kalkulator BMI (Body Mass Index)</h1>", unsafe_allow_html=True)
+        st.markdown("---")
+        st.subheader("Kalkulator BMI")
+        st.text("Kalkulator BMI (Body Mass Index) adalah cara menghitung berat badan ideal berdasarkan tinggi dan berat badan. BMI juga dapat dibedakan berdasarkan usia.")
+        
+        # Mengambil input dari pengguna melalui form
+        submit_button = self.get_input()
 
-        # Hitung dan tampilkan hasil BMI jika button ditekan
-        if st.button("Hitung BMI"):
+        # Hitung dan tampilkan hasil BMI jika tombol "Hitung BMI" ditekan
+        if submit_button:
             if self.berat > 0 and self.tinggi > 0 and self.usia > 0:
 
                 # Perhitungan BMI
@@ -71,7 +81,7 @@ class BMI:
                 elif self.usia >= 40 and self.usia < 60:
                     st.markdown(f"<h4 style='text-align: left; '>Tips Usia Menengah : Mulai perhatian pada kesehatan jantung dan keseimbangan berat badan</h4>", unsafe_allow_html=True)
                 else:
-                    st.markdown(f"<h4 style='text-align: left; '>ips Usia Lanjut : Fokus pada keseimbangan nutrisi, memperhatikan kesehatan tulang dan menjaga massa otot</h4>", unsafe_allow_html=True)
+                    st.markdown(f"<h4 style='text-align: left; '>Tips Usia Lanjut : Fokus pada keseimbangan nutrisi, memperhatikan kesehatan tulang dan menjaga massa otot</h4>", unsafe_allow_html=True)
                 
                 # Menambahkan catatan untuk perbedaan jenis kelamin
                 if self.jenis_kelamin == "Laki-Laki":
@@ -79,4 +89,4 @@ class BMI:
                 else:
                     st.markdown(f"<h4 style='text-align: left; '>Catatan : BMI normal untuk perempuan adalah 17–23. Perempuan cenderung memiliki lebih banyak jaringan lemak dibandingkan otot</h4>", unsafe_allow_html=True)
             else:
-                st.error("Harap masukkan nilai yang valid untuk berat badan, tinggi badan, usia, dan jenis kelamin anda.")
+                st.error("Harap masukkan nilai yang valid untuk berat badan, tinggi badan, usia, dan jenis kelamin anda.") 
