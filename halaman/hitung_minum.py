@@ -6,7 +6,7 @@ def show():
     st.markdown(f"<h1 style='text-align: center; color: #0077B6;'>Aplikasi Hitung Air Minum Harian</h1>", unsafe_allow_html=True)
     st.markdown("---")
     st.subheader("Kalkulator Kebutuhan Air Minum")
-    st.text("Kalkulator Kebutuhan Air Minum adalah cara menghitung kebutuhan air minum harian berdasarkan data berat badan, usia, dan tingkat aktivitas")
+    st.write("Kalkulator Kebutuhan Air Minum adalah cara menghitung kebutuhan air minum harian berdasarkan data berat badan, usia, dan tingkat aktivitas")
 
     # Membuat form untuk input
     with st.form(key='air_minum_form'):

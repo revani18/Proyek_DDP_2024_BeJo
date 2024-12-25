@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 class BMI:
     def __init__(self):
@@ -14,7 +15,7 @@ class BMI:
         # Membuat form untuk input
         with st.form(key='bmi_form'):
             # input jenis kelamin, berat badan, dan tinggi badan
-            self.jenis_kelamin = st.radio("Pilih Jenis Kelamin : ", ["Laki-laki", "Perempuan"])
+            self.jenis_kelamin = st.radio("Pilih Jenis Kelamin : ", ["Laki-Laki", "Perempuan"])
             self.berat = st.number_input("Masukkan Berat Badan (kg) : ", min_value=0.0, format="%.2f", step=0.1)
             self.tinggi = st.number_input("Masukkan Tinggi Badan (cm) : ", min_value=0.0, format="%.2f", step=0.1)
             self.usia = st.number_input("Masukkan Usia Anda (tahun) : ", min_value=1, step=1)
@@ -53,7 +54,22 @@ class BMI:
         st.markdown(f"<h1 style='text-align: center; color: #0077B6;'>Aplikasi Kalkulator BMI (Body Mass Index)</h1>", unsafe_allow_html=True)
         st.markdown("---")
         st.subheader("Kalkulator BMI")
-        st.text("Kalkulator BMI (Body Mass Index) adalah cara menghitung berat badan ideal berdasarkan tinggi dan berat badan. BMI juga dapat dibedakan berdasarkan usia.")
+        st.write("Kalkulator BMI adalah metrik standar yang digunakan untuk menentukan siapa saja yang masuk dalam kategori berat badan sehat dan tidak sehat. Menghitung berat badan ideal membantu anda menjaga kesehatan dan sebagai pengingat risiko penyakit yang mungkin mengganggu kesehatan anda. Kalkulator BMI adalah cara menghitung berat badan ideal berdasarkan tinggi dan berat badan. BMI juga dapat dibedakan berdasarkan usia dan jenis kelamin. Berikut adalah kategori BMI yang umum digunakan :")
+
+        # Menampilkan tabel kategori BMI
+        data = {
+            "Kategori BMI": ["Kurus", "Normal", "Gemuk", "Obesitas Klas I", "Obesitas Klas II"],
+            "Indeks BMI": ["Kurang dari 18.5", "18.5 - 24.9", "25 - 29.9", "30 - 34.9", "Lebih dari 35"],
+            "Deskripsi": [
+                "Berat badan kurang dari normal.",
+                "Berat badan normal dan ideal.",
+                "Kelebihan berat badan.",
+                "Obesitas tingkat 1, berisiko lebih tinggi untuk kesehatan.",
+                "Obesitas tingkat 2, berisiko sangat tinggi untuk kesehatan."
+            ]
+        }
+        df = pd.DataFrame(data)
+        st.table(df)
         
         # Mengambil input dari pengguna melalui form
         submit_button = self.get_input()
