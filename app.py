@@ -4,7 +4,7 @@ from halaman.kalkulator_bmi import BMI
 from halaman import hitung_kalori, hitung_minum, jadwal_olahraga
 
 # Mengatur Layout Halaman
-st.set_page_config(page_title="Aplikasi Kesehatan & Kebugaran", layout="wide")
+st.set_page_config(page_title="Aplikasi Kesehatan & Kebugaran", page_icon="💙", layout="wide")
 
 # Sidebar untuk menu navigasi
 with st.sidebar:
