@@ -1,8 +1,6 @@
 import streamlit as st
 
 def show():
-
-    # Judul Halaman
     st.markdown(f"<h1 style='text-align: center; color: #0077B6;'>Aplikasi Hitung Air Minum Harian</h1>", unsafe_allow_html=True)
     st.markdown("---")
     st.subheader("Kalkulator Kebutuhan Air Minum")

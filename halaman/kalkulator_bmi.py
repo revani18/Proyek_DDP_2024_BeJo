@@ -50,7 +50,6 @@ class BMI:
         
     # Menampilkan
     def show(self):
-        # st.title("Aplikasi Kalkulator BMI (Body Mass Index)")
         st.markdown(f"<h1 style='text-align: center; color: #0077B6;'>Aplikasi Kalkulator BMI (Body Mass Index)</h1>", unsafe_allow_html=True)
         st.markdown("---")
         st.subheader("Kalkulator BMI")
