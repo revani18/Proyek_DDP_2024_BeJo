@@ -28,7 +28,7 @@ def show():
         )
 
         # Tombol submit
-        submit_button = st.form_submit_button("Hitung")
+        submit_button = st.form_submit_button("Hitung Kebutuhan Kalori")
 
     # Tombol Hitung
     if submit_button:
@@ -58,13 +58,13 @@ def show():
 
             # Menampilkan kalori yang disarankan berdasarkan tujuan
             if tujuan == "Menjaga berat badan":
-                st.write(f"<h5 style='text-align: center;' >Disarankan  : Jika tujuan Anda menjaga berat badan, maka Anda dapat mempertahankan asupan kalori harian sesuai dengan TDEE yang dihitung</h5><br/>", unsafe_allow_html=True)
+                st.write(f"<h4 style='text-align: center;' >Disarankan  : Jika tujuan Anda menjaga berat badan, maka Anda dapat mempertahankan asupan kalori harian sesuai dengan TDEE yang dihitung</h4><br/>", unsafe_allow_html=True)
             elif tujuan == "Menurunkan berat badan":
                 kalori_rekomendasi = tdee * 0.8  # Mengurangi 20% dari TDEE untuk penurunan berat badan
-                st.write(f"<h5 style='text-align: center;' >Disarankan : Jika tujuan Anda menurunkan berat badan, maka Anda bisa mengonsumsi sekitar {kalori_rekomendasi:.2f} kalori per hari</h5><br/>", unsafe_allow_html=True)
+                st.write(f"<h4 style='text-align: center;' >Disarankan : Jika tujuan Anda menurunkan berat badan, maka Anda bisa mengonsumsi sekitar {kalori_rekomendasi:.2f} kalori per hari</h4><br/>", unsafe_allow_html=True)
             else:  # Menaikkan berat badan
                 kalori_rekomendasi = tdee * 1.2  # Menambah 20% dari TDEE untuk kenaikan berat badan
-                st.write(f"<h5 style='text-align: center;' >Disarankan : Jika tujuan Anda menaikkan berat badan, maka Anda bisa mengonsumsi sekitar {kalori_rekomendasi:.2f} kalori per hari</h5><br/>", unsafe_allow_html=True)
+                st.write(f"<h4 style='text-align: center;' >Disarankan : Jika tujuan Anda menaikkan berat badan, maka Anda bisa mengonsumsi sekitar {kalori_rekomendasi:.2f} kalori per hari</h4><br/>", unsafe_allow_html=True)
 
             # Menambahkan grafik untuk visualisasi BMR dan TDEE
             labels = ['BMR', 'TDEE']

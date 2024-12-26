@@ -1,7 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-from halaman.kalkulator_bmi import BMI
-from halaman import hitung_kalori, hitung_minum, jadwal_olahraga
+from halaman import kalkulator_bmi, hitung_kalori, hitung_minum, jadwal_olahraga
 
 # Mengatur Layout Halaman
 st.set_page_config(page_title="Aplikasi Kesehatan & Kebugaran", page_icon="💙", layout="wide")
@@ -22,7 +21,7 @@ with st.sidebar:
 
 # Halaman sesuai pilihan pengguna
 if selected == "Kalkulator BMI":
-    BMI().show()
+    kalkulator_bmi.show()
 elif selected == "Hitung Kalori":
     hitung_kalori.show()
 elif selected == "Hitung Air Minum":
