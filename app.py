@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
+import beranda
 from halaman import kalkulator_bmi, hitung_kalori, hitung_minum, jadwal_olahraga
 
 # Mengatur Layout Halaman
@@ -7,8 +8,8 @@ st.set_page_config(page_title="Aplikasi Kesehatan & Kebugaran", page_icon="💙"
 
 # Sidebar untuk menu navigasi
 with st.sidebar:
-    selected = option_menu("Main Menu", ["Kalkulator BMI", "Hitung Kalori", "Hitung Air Minum", "Jadwal Olahraga"], 
-        icons=['calculator', 'egg-fried', 'cup-straw', 'calendar'], 
+    selected = option_menu("Main Menu", ["Beranda", "Kalkulator BMI", "Hitung Kalori", "Hitung Air Minum", "Jadwal Olahraga"], 
+        icons=['card-text', 'calculator', 'egg-fried', 'cup-straw', 'calendar'], 
         menu_icon="cast", default_index=0, orientation="vertical",
         styles={
             "container": {"padding": "0!important", "background-color": "#e6f5ff"},
@@ -28,3 +29,5 @@ elif selected == "Hitung Air Minum":
     hitung_minum.show()
 elif selected == "Jadwal Olahraga":
     jadwal_olahraga.show()
+elif selected == "Beranda":
+    beranda.show()
