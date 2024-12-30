@@ -2,7 +2,7 @@ import streamlit as st
 
 def show():
     # Menampilkan judul informasi
-    st.markdown(f"<h1 style='text-align: center; color: #0077B6;'>INFORMASI APLIKASI & TIM</h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align: center; color: #0077B6;'>INFORMASI APLIKASI KESEHATAN & KEBUGARAN</h1>", unsafe_allow_html=True)
     st.markdown("---")
     st.image("images/gambar.png")
     # Menjelaskan sistem perhitungan
@@ -55,24 +55,3 @@ def show():
     - Aplikasi ini membantu Anda menciptakan kebiasaan olahraga yang teratur dan memberikan wawasan tentang total waktu yang Anda dedikasikan untuk kesehatan Anda
    
     """)
-
-# Menampilkan informasi tentang tim pengembang
-    st.markdown(f"<h1 style='color: #0077B6;'>Tim Pengembang</h1>", unsafe_allow_html=True)
-    st.write("""
-    - **Ketua Tim**: 
-    \n 1. Revani
-    """) 
-    st.write("""
-    - **Anggota Tim**: 
-    \n 2. Fitri Aura Ramadhani
-    \n 3. Yurida Yahsya
-    \n 4. Muhammad Fajrul Falah
-    """)
-
-    st.markdown(f"<h2 style='text-align: center; color: #0077B6;'>Foto Kelompok BeJo</h2></br>", unsafe_allow_html=True)
-    col1, col2,col3 = st.columns(3)  # Membuat tiga kolom
-    col2.image("images/revani.png", width=250, caption="Revani")
-    col1, col2,col3 = st.columns(3)  # Membuat tiga kolom
-    col1.image("images/yuri.png", width=200, caption="Yurida Yahsya")
-    col2.image("images/arul.png", width=200, caption="Muhammad Fajrul Falah")
-    col3.image("images/aura.png", width=290, caption="Fitri Aura Ramadhani")
